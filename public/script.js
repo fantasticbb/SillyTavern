@@ -51,6 +51,8 @@ import {
     charSetAuxWorlds,
 } from './scripts/world-info.js';
 
+import './scripts/storybook.js';
+
 import {
     groups,
     selected_group,

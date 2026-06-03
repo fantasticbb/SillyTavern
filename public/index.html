@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="css/group-avatars.css">
     <link rel="stylesheet" type="text/css" href="css/toggle-dependent.css">
     <link rel="stylesheet" type="text/css" href="css/world-info.css">
+    <link rel="stylesheet" type="text/css" href="css/storybook.css">
     <link rel="stylesheet" type="text/css" href="css/extensions-panel.css">
     <link rel="stylesheet" type="text/css" href="css/select2-overrides.css">
     <link rel="stylesheet" type="text/css" href="css/mobile-styles.css">
@@ -5977,6 +5978,98 @@
                                             Auto-lock a chosen persona to the chat
                                         </span>
                                     </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="storybook-button" class="drawer">
+            <div class="drawer-toggle drawer-header">
+                <div id="StorybookDrawerIcon" class="drawer-icon fa-solid fa-book-open fa-fw closedIcon" title="Story Book" data-i18n="[title]Story Book"></div>
+            </div>
+            <div id="StorybookPanel" class="drawer-content closedDrawer fillRight">
+                <div id="StorybookPanelHeader" class="fa-solid fa-grip drag-grabber"></div>
+                <div class="flex-container alignitemscenter gap10px marginBot10">
+                    <div id="storybook_pin_div" title="Locked = Story Book panel will stay open" data-i18n="[title]Locked = Story Book panel will stay open">
+                        <input type="checkbox" id="storybook_panel_pin">
+                        <label for="storybook_panel_pin">
+                            <div class="unchecked fa-solid fa-unlock"></div>
+                            <div class="checked fa-solid fa-lock"></div>
+                        </label>
+                    </div>
+                    <h3 class="margin0"><span data-i18n="Story Book">Story Book</span></h3>
+                </div>
+                <div id="storybook_content" class="flex-container flexFlowColumn">
+                    <div class="flex-container alignitemscenter gap5px">
+                        <div id="storybook_create_button" class="menu_button menu_button_icon">
+                            <i class="fa-solid fa-plus"></i>
+                            <span data-i18n="Create">Create</span>
+                        </div>
+                        <small data-i18n="or">or</small>
+                        <select id="storybook_selector" class="flex1 text_pole margin0">
+                            <option value="" data-i18n="--- Pick to Edit ---">--- Pick to Edit ---</option>
+                        </select>
+                        <div id="storybook_duplicate_button" class="menu_button fa-solid fa-paste" title="Duplicate Story Book" data-i18n="[title]Duplicate Story Book"></div>
+                        <div id="storybook_rename_button" class="menu_button fa-solid fa-pencil" title="Rename Story Book" data-i18n="[title]Rename Story Book"></div>
+                        <div id="storybook_delete_button" class="menu_button fa-solid fa-trash-can redWarningBG" title="Delete Story Book" data-i18n="[title]Delete Story Book"></div>
+                    </div>
+
+                    <div id="storybook_editor" style="display:none; margin-top: 10px;">
+                        <div id="storybook_timeline_container" class="storybook_timeline_container">
+                            <div class="storybook_timeline_label"><span data-i18n="Story Timeline">Story Timeline</span></div>
+                            <div id="storybook_timeline" class="storybook_timeline">
+                            </div>
+                            <div id="storybook_add_node" class="menu_button fa-solid fa-plus" title="Add Story Node" data-i18n="[title]Add Story Node"></div>
+                        </div>
+
+                        <div id="storybook_node_editor" style="display:none; margin-top: 15px;" class="storybook_node_editor">
+                            <h4 class="standoutHeader"><span data-i18n="Node Editor">Node Editor</span></h4>
+                            <div class="flex-container flexFlowColumn gap10px">
+                                <div class="flex-container alignitemscenter">
+                                    <label class="flex-container alignitemscenter gap5px">
+                                        <span data-i18n="Title">Title</span>
+                                        <input type="text" id="storybook_node_title" class="text_pole flex1" data-i18n="[placeholder]Node Title" placeholder="Node Title">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="flex-container flexFlowColumn">
+                                        <span data-i18n="Description">Description</span>
+                                        <textarea id="storybook_node_description" class="text_pole textarea_compact" rows="3" data-i18n="[placeholder]Describe what happens at this story node..." placeholder="Describe what happens at this story node..."></textarea>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label><span data-i18n="Characters in this node">Characters in this node</span></label>
+                                    <div id="storybook_node_characters" class="storybook_character_dropzone">
+                                        <span class="text_muted" data-i18n="Drag character cards here or click to add">Drag character cards here or click to add</span>
+                                    </div>
+                                    <div id="storybook_node_char_list" class="flex-container flexwrap gap5px">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label><span data-i18n="Character Connections">Character Connections</span></label>
+                                    <div id="storybook_connections_list" class="storybook_connections">
+                                    </div>
+                                    <div id="storybook_add_connection" class="menu_button fa-solid fa-plus" title="Add Connection" data-i18n="[title]Add Connection"> <span data-i18n="Add Connection">Add Connection</span></div>
+                                </div>
+                                <div class="flex-container alignitemscenter gap5px">
+                                    <div id="storybook_node_save" class="menu_button menu_button_icon">
+                                        <i class="fa-solid fa-save"></i>
+                                        <span data-i18n="Save Node">Save Node</span>
+                                    </div>
+                                    <div id="storybook_node_delete" class="menu_button menu_button_icon redWarningBG">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        <span data-i18n="Delete Node">Delete Node</span>
+                                    </div>
+                                    <div id="storybook_node_generate" class="menu_button menu_button_icon">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                        <span data-i18n="Generate Story">Generate Story</span>
+                                    </div>
+                                </div>
+                                <div id="storybook_generated_content" style="display:none;">
+                                    <h4 class="standoutHeader"><span data-i18n="Generated Content">Generated Content</span></h4>
+                                    <div id="storybook_generated_text" class="storybook_generated_text"></div>
                                 </div>
                             </div>
                         </div>
